@@ -54,7 +54,7 @@ class FootBallStatisticsApplicationTests {
 	
 	@Test
 	public void testStandingRepositoryTest() {
-		assertTrue(0==standingRepository.getStanding(148, 2621).getOverallLeagueDrawn());
+		assertTrue(14==standingRepository.getStanding(148, 2611).getOverAllLeagueWon());
 	}
 	
 

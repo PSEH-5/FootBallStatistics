@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.sapient.FootBallStatistics.model.Country;
-import com.sapient.FootBallStatistics.model.League;
 import com.sapient.FootBallStatistics.model.Standing;
 import com.sapient.FootBallStatistics.model.Team;
 import com.sapient.FootBallStatistics.service.StatisticsService;
@@ -26,11 +25,7 @@ public class FootBallStatisticsController {
 		return statisticsService.getCountry(name);
 	}
 	
-	@GetMapping(value="/league",produces=MediaType.APPLICATION_JSON_VALUE)
-	public League getLeague(@RequestParam("league_name") String name, @RequestParam("country_id") Integer id) {
-		return statisticsService.getLeague(name, id);
-	}
-	
+		
 	@GetMapping(value="/team",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Team getTeam(@RequestParam("team_name") String name, @RequestParam("league_id") Integer id) {
 		return statisticsService.getTeam(name, id);
@@ -38,10 +33,10 @@ public class FootBallStatisticsController {
 	
 	@GetMapping(value="/standing",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Standing getStanding(@RequestParam("country_name") String countryName,
-            @RequestParam("league_name") String leagueName,
+            @RequestParam("league_Id") Integer leagueId,
             @RequestParam("team_name") String teamName) {
 
-				return statisticsService.getStanding(countryName, leagueName, teamName);
+				return statisticsService.getStanding(countryName, leagueId, teamName);
 	}			
 }
 

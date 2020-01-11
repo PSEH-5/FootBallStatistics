@@ -24,9 +24,9 @@ public class StatisticsService {
 	@Autowired
 	private StandingRepository standingRepository;
 	
-	public Standing getStanding(String countryName, String leagueName, String teamName) {
-		Integer teamId = teamRepository.getTeamByName(teamName, 148).getTeamId();
-		return standingRepository.getStanding(148, teamId);
+	public Standing getStanding(String countryName, Integer leagueId, String teamName) {
+		Integer teamId = teamRepository.getTeamByName(teamName, leagueId).getTeamId();
+		return standingRepository.getStanding(leagueId, teamId);
 	}
 	
 	public Country getCountry(String countryName) {
